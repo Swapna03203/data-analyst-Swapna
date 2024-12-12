@@ -83,10 +83,13 @@ Some of the accidents took place in January, March and May although due to small
       This descriptive analysis leverages AWS services to efficiently analyze the occupational health and safety data, providing valuable insights to improve workplace safety at UCW.
 
 **Data Wrangling**
+**Project Description:** Data Wrangling for Accident Reporting Records at University Canada  West .This project seeks to convert the raw dataset into a clean, consolidated format that will allow for speedy retrieval, accurate analysis, and compliance reporting by organizational stakeholders. The data wrangling process will be automated and monitored using AWS services such as S3, Glue, DataBrew, DynamoDB, Athena, CloudWatch, and CloudTrail, all while ensuring data security and control.
 
 **Project Title:** Data Wrangling for Accident Reporting Records Using AWS Services
 
 **Objective:** The aim of data wrangling is to clean the sample data extracted from the Accident Reporting Records dataset. This involves cleansing of data, transforming of data and then aggregating the data in other to enhance the quality and suitability for further data analysis processing. The whole process of wrangling will be automated, safeguarded, and overseen by AWS tools.
+
+**Background:** Organizations struggle to manage accident reporting records because the data is fragmented, inconsistent, or incomplete. Accurate reporting and analysis of workplace occurrences is critical for regulatory compliance, hazard identification, and preventative action.The Accident Reporting Records dataset, which contains information such as accident dates, worker IDs, accident kinds, and report submission dates, requires data wrangling. This process comprises data intake, cleansing, profiling, and protection to provide high-quality, dependable data. The wrangling process will be scalable, safe, and efficient thanks to the use of Amazon Web Services.
 
 **Dataset Overview:**
 Accident Reporting Records Dataset includes:
@@ -135,11 +138,43 @@ DynamoDB facilitates the rapid querying and retrieval of accident information fo
 **IAM and KMS.**
 To enforce S3 bucket, Glue job, and DynamoDB access policies, use AWS Identity and Access Management (IAM).
 Use the AWS Key Management Service (KMS) to encrypt data at rest.
-**loudWatch:**
+**CloudWatch:**
 Set up CloudWatch to keep track on Glue task execution status and S3 bucket activities.
-CloudTrail:
+**CloudTrail:** Use CloudTrail to keep track of all AWS API activity for security and auditing.
 
-Use CloudTrail to keep track of all AWS API activity for security and auditing.
+**Tools and Technology:**
+**Amazon S3:** provides storage for both the raw and sanitized datasets.
+
+**AWS Glue:** Data catalog development and transformation tasks.
+
+**AWS Glue DataBrew:** AWS Glue DataBrew cleans and transforms data.
+
+**Athena:** Amazon Athena enables data querying and validation.
+
+**Amazon DynamoDB:** Amazon DynamoDB provides storage for accident records that have been cleansed and converted.
+
+**Cloud Watch** CloudWatch monitors Glue job activity and system performance.
+
+**Cloud Trail** CloudTrail logs AWS activity for security and auditing purposes.
+
+**IAM and KMS** IAM and KMS provide secure data access and encryption.
+
+**Deliverables**
+Cleaned and transformed datasets stored in DynamoDB and S3.
+Data Quality Report that includes missing values, duplicates, and modifications.
+Athena Queries for validating the cleaned data.
+Logs & Monitoring Set up CloudWatch and CloudTrail for security and performance monitoring.
+
+**Timeline:**
+**Total Duration : 7 Weeks**
+The data wrangling process includes six phases: 1) Data Ingestion, 2) Data Analysis, 3) Data Cleaning, 4) Data Profiling, 5) Data Security, 6) Data Consolidation, and 7) Monitoring. The first step is to upload the raw accident reporting dataset to Amazon S3, configure IAM roles and S3 bucket policies for data security, and enable S3 versioning for data version management. The second step comprises data analysis with AWS Glue Crawler and Amazon Athena to find errors such as missing information, duplication, and format inconsistencies. The third phase comprises data cleaning with AWS Glue DataBrew, which addresses missing values, removes duplicate entries, standardizes date formats, and cleans up 'Accident_Type' text fields. The fourth process comprises data profiling, which validates the cleaned data and ensures its correctness, consistency, and completeness.The fifth phase entails data security with AWS KMS and IAM rules for S3 and DynamoDB. The sixth process entails data consolidation, saving the cleansed data in Amazon DynamoDB for future analysis, and retaining unique IDs.
+
+The goal of this data wrangling is to create a **high-quality, clean, and organized dataset** for the **Accident Reporting Records**, which will allow for effective incident analysis and compliance monitoring. The project will enable trustworthy reporting and insights by resolving data quality concerns, standardizing formats, and safeguarding the data with AWS services. This will assist the firm in identifying workplace dangers, improving safety practices, ensuring regulatory compliance, and driving overall improvement in workplace safety management.
+
+![image](https://github.com/user-attachments/assets/d8b8b73e-ff0d-4cec-9994-a5f6308bcbe7)
+
+
+
 
 
       
