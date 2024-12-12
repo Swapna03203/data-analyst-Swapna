@@ -173,6 +173,113 @@ The goal of this data wrangling is to create a **high-quality, clean, and organi
 
 ![image](https://github.com/user-attachments/assets/d8b8b73e-ff0d-4cec-9994-a5f6308bcbe7)
 
+**Data Quality Control Measures:**
+
+**Project Description:** The major goal of this project is to provide a Data Quality Control (DQC) framework for the Accident Reporting Records dataset utilizing AWS services. This framework will guarantee that incident data is accurate, full, consistent, and reliable, allowing the business to discover safety gaps, comply with requirements, and make better workplace safety decisions. This project will use AWS resources such as S3, Glue, DataBrew, DynamoDB, Athena, CloudWatch, and IAM to create a strong process for profiling, cleaning, validating, and monitoring data quality.
+
+**Project Title:** Implementing Data Quality Control Measures for Accident Reporting Records Using AWS
+
+**Background**
+Organizations rely on precise and trustworthy accident reporting data to detect workplace dangers, resolve safety events, and maintain regulatory compliance.However, issues like as errors, missing values, duplicate entries, and incompatible formats might jeopardize data integrity. Poor data quality might result in inefficient incident management and delayed remedial measures.To solve these issues, the project will use AWS services to perform rigorous Data Quality Control (DQC) techniques. This program will enhance the accuracy of accident records, monitor data integrity in real time, and develop a culture of accountability for data quality.
+
+**Scope**
+The Data Quality Control Initiative will include:
+
+Data profiling involves evaluating data quality in terms of completeness, correctness, and consistency.
+Data cleansing include removing duplicates, standardizing formats, and filling in missing information.
+Data validation is the process of putting standards in place to guarantee that data remains accurate over time.
+Monitoring and reporting: Developing dashboards and alerts for real-time data quality tracking.
+Data Protection-Ensuring the secure access and encryption of accident data.
+Training-Educating employees on data quality methods and best practices.
+
+**Methodology**
+
+**Phase One: Data Ingestion and Storage (Week 1)**
+Upload the Accident Reporting Records data set to Amazon S3.
+Configure IAM roles to limit access and increase security.
+Enable S3 versioning to preserve historical documents.
+
+**Phase Two: Data Profiling (Week 2)**
+Use AWS Glue Crawler to profile the dataset and add it to the Glue Data Catalog.
+Use AWS Glue DataBrew to assess data completeness, uniqueness, validity, consistency, and correctness.
+Issues with document data quality include missing values, duplicate records, and inconsistent formats.
+
+**Phase 3: Data Cleansing and Transformation (Week 3–4)**
+Use AWS Glue DataBrew to remove duplicate records based on Report_ID.
+Standardize the date formats for Accident_Date and Report_Submission_Date.
+Fill in missing data with suitable placeholders (for example, "Unknown Accident Type").
+Normalize categorical variables such as Accident_Type.
+Place the cleansed dataset back on Amazon S3.
+
+**Phase 4: Data Validation (Week 5).**
+Implement validation rules in AWS Glue to ensure unique Report_ID entries.
+Dates should be formatted properly using datetime.
+Consistent values for categorical variables such as Accident_Type.
+Use Amazon Athena to query and check the integrity of S3 buckets.
+
+**Phase 5: Data Consolidation (Week 6).**
+Import the cleaned and verified dataset to Amazon DynamoDB using:
+The primary key is Report_ID, and the attributes include accident information, submission delays, and validation status.
+
+**Phase 6: Monitoring and Reporting (Week 7).**
+Set up alerts in Amazon CloudWatch to track the status and performance of your Glue jobs.
+AWS CloudTrail tracks and logs all dataset-related activity for auditing reasons.
+Create data quality dashboards using Amazon QuickSight or Athena queries.
+Duplicate records accumulate over time.
+Missing values and trends.
+Real-time data quality metrics.
+
+**Phase 7:Training and Awareness (Week Eight)**
+Create training materials and hold workshops for staff on data quality best practices.
+Use AWS tools to ensure data integrity.
+Data entry recommendations for minimizing mistakes.
+
+
+**Tools and Technologies**
+
+Amazon S3 provides secure storage for raw and processed datasets.
+AWS Glue and Glue DataBrew provide data profiling, cleaning, and transformation.
+Amazon Athena: querying and verifying datasets.
+Amazon DynamoDB stores the cleaned and verified dataset.
+CloudWatch monitors Glue task performance and data quality parameters.
+CloudTrail logs all AWS activity to ensure security and audit compliance.
+IAM and KMS provide secure access management and data encryption.
+
+**Deliverables**
+
+Cleaned and validated The dataset is stored in Amazon S3 and DynamoDB.
+Data Quality Metrics Report on completeness, duplication, and mistakes.
+A monitoring dashboard is used to track data quality indicators in real time.
+Documentation of the data quality control procedure, including methodologies and instruments.
+Employee training materials and workshops on data quality management.
+
+**Timeline**
+
+**Week 1:** Data intake and storage on Amazon S3.
+
+**Week 2:** Data Profiling with AWS Glue Crawler and DataBrew.
+
+**Weeks 3–4:** Data purification and transformation using AWS Glue DataBrew.
+
+**Week 5:** Data validation and integrity checks with Glue and Athena.
+
+**Week 6:** Data is consolidated into DynamoDB for structured access.
+
+**Week 7:** covers monitoring and reporting with CloudWatch, CloudTrail, and QuickSight.
+
+**Week 8:** Train employees on data quality protocols and best practices.
+
+
+
+
+
+ 
+
+
+
+      
+      
+
 
 
 
