@@ -8,6 +8,196 @@ Tools and Technologies
 Deliverables
 
 **Descriptive Analysis**
+**Project description:**  
+This study examines the **district lot counts** and geographic trends in the **City of Vancouver** to provide valuable insights into urban planning and resource allocation. Using AWS services such as **Amazon S3**, **AWS Glue DataBrew**, and **Amazon Athena**, the project enables efficient data intake, cleaning, and analysis. It detects high-density locations, land use distributions (e.g., residential, commercial), and clustering patterns across geographical zones. The findings offer actionable insights for improving zoning, infrastructure development, and resource management. Visualizations such as bar charts and heatmaps provide a clear knowledge of district lot allocations, allowing city planners to make more educated decisions.
+
+**Project Title:** An Analysis of Vancouver's District Lot Distribution
+
+
+**Objective :**
+This research aims to analyze the geographic distribution of district lot counts in the City of Vancouver. This analysis seeks to:
+Summarize district lot counts for different geographic locations.
+Find patterns or clusters in district lot distribution.
+Using AWS cloud services, provide meaningful insights into city planning and resource allocation.
+
+**Dataset**
+The dataset offers district lot information for the City of Vancouver, with significant properties such as:
+
+**Geo_Local_Area:** Geographic area name (for example, Downtown, West End, etc.).
+
+**District_Lot_Count:** The number of district lots per geographical region.
+
+**Label:** Classification of land use (for example, residential, business, or industrial).
+
+**Geoms** Coordinates are geographic positions that serve as geographical references.
+
+**Methodology:**
+**Data collection and preparation**
+**Data Extraction:** Data obtained from Vancouver's Open Data platform.
+**Data Ingestion:** The dataset is stored in an Amazon S3 bucket (pad-dis-raw-swa).
+
+**Data cleaning and profiling**
+AWS Glue DataBrew is used to clean the dataset,Address any missing values or outliers,Validate data types (for example, numerical counts for district lots).
+AWS Glue DataBrew is also used for data profiling the data to ensure its quality.
+The cleaned dataset is stored in a transformation bucket (pad-dis-trf-swa).
+
+**Descriptive statistics:**
+AWS Glue DataBrew and Amazon Athena were used to generate the following statistics:
+
+**Total District Lots:** Determine the total number of district lots in all geographic locations.
+
+**Top Geographic places:** Determine which places have the biggest amount of district lots.
+
+**Distribution by Land Use:** Determine the proportion of residential, commercial, and industrial parcels.
+
+**Periodic Variations:** Check for seasonal or monthly changes in district lot numbers (if available).
+
+
+**Data Exploration and Analysis:**
+**Amazon Athena.**
+Queries were used to investigate district lot numbers and their correlation with land use categories.Patterns from several locations were retrieved using SQL-based searches.
+
+**Clustering and Spatial Analysis:** We evaluated geographic data to detect trends in district lot counts, such as larger numbers in downtown regions.Key information were visually shown to support city planning decisions 
+
+**Insight and Findings**
+Downtown and the West End have the largest concentrations of district lots.  
+
+Residential land use dominated most locations, with commercial properties concentrated in core zones.  
+
+District lot clusters were located in central city locations and decreased as you moved into outlying communities.
+
+Minor fluctuations in district lot activity were seen during the spring and summer months, owing to probable building projects.  
+
+**Recommendations**
+
+Examine land use in high-density regions to guarantee a mix of residential, business, and recreational uses.  
+
+Prioritize regions with high district lot counts for better infrastructure development.  
+
+Prioritize maintenance and planning resources for key locations with dense lot populations.  
+
+Use other data, such as population density or development permits, to gain deeper insights.  
+
+**Insights and findings**
+Downtown and West End have the largest concentrations of district lots.  
+
+The majority of the property was used for residential purposes, with commercial lots concentrated in key regions.  
+
+District lot clusters were abundant in central city locations, but decreased as you moved to outlying communities.  
+
+Minor fluctuations in district lot activity were detected during the spring and summer months as a result of anticipated building projects.  
+
+**Recommendations**
+
+Evaluate land use in high-density locations to provide a mix of residential, commercial, and recreational spaces.  
+
+Concentrate on locations with high district lot counts for better infrastructure development.  
+
+Prioritize maintenance and planning efforts in key locations with high lot densities.  
+
+To gain deeper insights, integrate other data such as population density or development permits.  
+
+**Tools and Technologies:**
+
+**Amazon S3:** Used to store raw and converted data.
+
+**AWS Glue DataBrew:** Used for data cleansing, profiling, and transformation.
+
+**Amazon Athena:** Used to query and derive insights from a dataset.
+
+
+**Deliverables:**
+
+-Deliverables include a complete report outlining the study process, findings, and suggestions.  
+
+-District lot numbers, geographic clusters, and land use patterns are represented using visualizations such as pie charts, bar charts, and heatmaps.  
+
+- Datasets were cleaned and organized before being saved in Amazon S3 for future analysis and decision making.  
+
+- An overview of critical insights, trends, and concrete initiatives for city planners and stakeholders.  
+
+- AWS logs and data pipelines for auditing and validation.  
+
+- Data documentation describing the sources, cleaning stages, and transformation processes.
+
+![image](https://github.com/user-attachments/assets/fe3900e7-4f1b-4ef6-8358-ebf9927fee76)
+
+
+**Data Wrangling**
+
+  **Project Description**
+The goal of this project is to guarantee correctness, consistency, and usefulness for spatial research and urban planning by **data wrangling** the City of Vancouver's district lot information. The project uses **AWS tools** such as Amazon S3, Glue DataBrew, and Athena to clean, convert, and consolidate data, resulting in a strong dataset for studying district lot distributions, geographic trends, and land use classifications. Missing value management, format standardization, and the development of additional features such as lot density are all important challenges. The final deliverables include a cleaned dataset, infographics, and interactive dashboards to aid in informed decision-making for zoning optimization and resource allocation.
+
+**Project Title:** Data Wrangling for Optimal District Lot Insights and Urban Planning.
+
+**Objective**
+The goal of this project is to do end-to-end data wrangling on the City of Vancouver's district lot data to assure correctness, completeness, and usability. The cleaned and consolidated information will allow for effective spatial analysis, revealing land use trends, identifying regional patterns, and assisting with urban planning choices such as zoning and resource allocation.
+
+**Background**
+The City of Vancouver gathers and administers district lot data from a variety of geographic locations, including district lot numbers, land use classifications (residential, commercial, and industrial), and geographical coordinates. However, the dataset's discrepancies, missing numbers, and formatting flaws restrict its usefulness for urban development programs.
+
+**Dataset**
+The project is focused on the following important attributes:
+
+**Geo_Local_Area:** Geographic area names (for example, Downtown, West End, or Kitsilano).
+
+**District_Lot_Count:** The total number of district lots in each geographical area.
+
+**Label:** A classification of land use (for example, residential, commercial, or industrial).
+
+**Geoms:** Latitude and longitude values corresponding to district lot locations.
+
+**Methodology**
+
+**Data Collection**
+The district lot data is available through the City of Vancouver's Open Data portal.
+Upload the raw dataset to the Amazon S3 bucket (district-lots-raw-swa) for centralized and safe storage.
+With AWS KMS encryption and S3 bucket versioning, you can provide version control and data security.
+
+**Data Assessment**
+Use AWS Glue DataBrew to examine the dataset's quality.
+      Find missing data in properties like district lot counts or locations.
+      Detect and document duplicate records.
+      Examine data formats for irregularities (for example, incorrect date formats or misspelled Geo_Local_Area names).
+      Create data profiles that summarize significant information (e.g., minimum, maximum, and average lot counts).
+
+Log and document any discoveries, including inconsistencies, oddities, and places that need cleaning.
+
+**Data Cleaning**
+**Address the missing values:**
+Use averages or regional medians to fill in missing District_Lot_Count data, where appropriate.
+Remove or mark records with missing coordinates for spatial analysis.
+Remove duplicate records using unique Geo_Local_Area and Coordinate combinations.
+
+**Standardize the data formats:**
+Correct date and timestamp formats to ensure uniformity.
+Normalize categorical variables.
+Standardize the land_use_label (e.g., residential, commercial, industrial).
+Correct discrepancies in Geo_Local_Area names (for example, "Downtown" vs. "downtown").
+Clean data should be stored in a transformation bucket (pad-dis-trf-swa) on Amazon S3 for further processing.
+
+**Data Transformation** Convert data types: Ensure that the analysis formats are acceptable (for example, numeric for District_Lot_Count and datetime for Timestamp).
+**Feature Engineering:**
+Derive new attributes:
+      Total_District_Lot_Count: Aggregate counts by geographic region.
+      Include summary flags: Determine which places have high or low lot densities.
+**Spatial Aggregation:** Combine geographic coordinates to find grouping tendencies in district lots.Perform grouping and aggregation.To generate summary, group the data by Geo_Local_Area and Land_Use_Label.
+Aggregate data into monthly or quarterly periods to get seasonal insights.
+Data Consolidation
+Merge cleaned and transformed datasets to create a uniform dataset:
+Combine geographic area data, district lot numbers, land use classifications, and spatial coordinates.
+Ensure that links are formed using unique identifiers (such as geographic area codes).
+
+
+
+
+
+
+
+
+
+
+**Descriptive Analysis**
 
 **Project Description:** Descriptive Analysis of Occupational Health and Safety Policy for Compliance and Optimization
 
@@ -268,6 +458,8 @@ Employee training materials and workshops on data quality management.
 **Week 7:** covers monitoring and reporting with CloudWatch, CloudTrail, and QuickSight.
 
 **Week 8:** Train employees on data quality protocols and best practices.
+
+
 
 
 
