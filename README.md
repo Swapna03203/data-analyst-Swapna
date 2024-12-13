@@ -1,67 +1,116 @@
 **Descriptive Analysis of City of Vancouver District Lots**
+
 Project Description	
+
 Project Title
+
 Objective
+
 Dataset	
+
 Methodology	
+
 Tools and Technologies	
+
 Deliverables
 
 **Data Wrangling for City of Vancouver District Lots**
+
 Project Description
+
 Project Title
+
 Objective
+
 Background
+
 Dataset
+
 Methodology 
+
 Tools and Technologies
+
 Deliverables
+
 Timeline
 
 **Data Quality Control of City of Vancouver districts lots**
+
 Project Description
+
 Project Title
+
 Objective
+
 Background
+
 Scope
+
 Methodology
+
 Deliverables
+
 Timeline
 
-
 **Descriptive Analysis of Occupational Health and Safety Policy at UCW**
+
 Project Description	
+
 Project Title
+
 Objective
+
 Dataset	
+
 Methodology	
+
 Tools and Technologies	
+
 Deliverables
 
 **Data Wrangling for Occupational Health and Safety Policy at UCW**
+
 Project Description
+
 Project Title
+
 Objective
+
 Background
+
 Dataset
+
 Methodology 
+
 Tools and Technologies
+
 Deliverables
+
 Timeline
 
 **Data Quality Control of Occupational Health and Safety Policy at UCW**
+
 Project Description
+
 Project Title
+
 Objective
+
 Background
+
 Scope
+
 Methodology
+
 Deliverables
+
 Timeline
 
 
 
-**Descriptive Analysis**
+
+**Descriptive Analysis for City of Vancouver District Lots**
+
 **Project description:**  
 This study examines the **district lot counts** and geographic trends in the **City of Vancouver** to provide valuable insights into urban planning and resource allocation. Using AWS services such as **Amazon S3**, **AWS Glue DataBrew**, and **Amazon Athena**, the project enables efficient data intake, cleaning, and analysis. It detects high-density locations, land use distributions (e.g., residential, commercial), and clustering patterns across geographical zones. The findings offer actionable insights for improving zoning, infrastructure development, and resource management. Visualizations such as bar charts and heatmaps provide a clear knowledge of district lot allocations, allowing city planners to make more educated decisions.
 
@@ -86,7 +135,9 @@ The dataset offers district lot information for the City of Vancouver, with sign
 **Geoms** Coordinates are geographic positions that serve as geographical references.
 
 **Methodology:**
+
 **Data collection and preparation**
+
 **Data Extraction:** Data obtained from Vancouver's Open Data platform.
 **Data Ingestion:** The dataset is stored in an Amazon S3 bucket (pad-dis-raw-swa).
 
@@ -108,6 +159,7 @@ AWS Glue DataBrew and Amazon Athena were used to generate the following statisti
 
 
 **Data Exploration and Analysis:**
+
 **Amazon Athena.**
 Queries were used to investigate district lot numbers and their correlation with land use categories.Patterns from several locations were retrieved using SQL-based searches.
 
@@ -177,7 +229,7 @@ To gain deeper insights, integrate other data such as population density or deve
 ![image](https://github.com/user-attachments/assets/fe3900e7-4f1b-4ef6-8358-ebf9927fee76)
 
 
-**Data Wrangling**
+**Data Wrangling for City of Vancouver District Lots**
 
   **Project Description**
 The goal of this project is to guarantee correctness, consistency, and usefulness for spatial research and urban planning by **data wrangling** the City of Vancouver's district lot information. The project uses **AWS tools** such as Amazon S3, Glue DataBrew, and Athena to clean, convert, and consolidate data, resulting in a strong dataset for studying district lot distributions, geographic trends, and land use classifications. Missing value management, format standardization, and the development of additional features such as lot density are all important challenges. The final deliverables include a cleaned dataset, infographics, and interactive dashboards to aid in informed decision-making for zoning optimization and resource allocation.
@@ -218,6 +270,7 @@ Use AWS Glue DataBrew to examine the dataset's quality.
 Log and document any discoveries, including inconsistencies, oddities, and places that need cleaning.
 
 **Data Cleaning**
+
 **Address the missing values:**
 Use averages or regional medians to fill in missing District_Lot_Count data, where appropriate.
 Remove or mark records with missing coordinates for spatial analysis.
@@ -277,7 +330,7 @@ This connection offers safe, efficient, and monitored data processing while ensu
 **IAM and KMS** IAM and KMS provide secure data access and encryption.
 
 
-**Data Quality Control**
+**Data Quality Control for City of Vancouver District Lots**
 
 **Project Description:** This project aims to create a Data Quality Control (DQC) framework for the City of Vancouver District Lot Dataset utilizing AWS services. This program assures that the dataset is correct, comprehensive, consistent, and dependable for urban planning, zoning optimization, and infrastructure choices. This project uses AWS resources such as S3, Glue, DataBrew, Athena, DynamoDB, CloudWatch, and CloudTrail to execute rigorous data profiling, cleansing, validation, monitoring, and reporting procedures that ensure data integrity and allow informed decision-making.
 
@@ -300,6 +353,7 @@ This connection offers safe, efficient, and monitored data processing while ensu
 **Training:** Training involves educating stakeholders about data quality management and best practices.
 
 **Methodology**
+
 **Phase I: Data Ingestion and Storage (Week 1)**
 Upload the district lot dataset to Amazon S3 (district-lots-raw-swa) to ensure centralized storage.
 Configure IAM roles to ensure safe access to S3 buckets.
@@ -401,12 +455,7 @@ This Data Quality Control program for the City of Vancouver's district lot datas
 
 
 
-
-
-
-
-
-**Descriptive Analysis**
+**Descriptive Analysis of Occupational Health and Safety Policy at UCW**
 
 **Project Description:** Descriptive Analysis of Occupational Health and Safety Policy for Compliance and Optimization
 
@@ -481,7 +530,7 @@ Some of the accidents took place in January, March and May although due to small
 
       This descriptive analysis leverages AWS services to efficiently analyze the occupational health and safety data, providing valuable insights to improve workplace safety at UCW.
 
-**Data Wrangling**
+**Data Wrangling of Occupational Health and Safety Policy at UCW**
 
 **Project Description:** Data Wrangling for Accident Reporting Records at University Canada  West .This project seeks to convert the raw dataset into a clean, consolidated format that will allow for speedy retrieval, accurate analysis, and compliance reporting by organizational stakeholders. The data wrangling process will be automated and monitored using AWS services such as S3, Glue, DataBrew, DynamoDB, Athena, CloudWatch, and CloudTrail, all while ensuring data security and control.
 
@@ -535,6 +584,7 @@ The primary key is Report_ID, with attributes including Accident_Date, Worker_ID
 DynamoDB facilitates the rapid querying and retrieval of accident information for future study.
 
 **5. Monitoring and Security:**
+
 **IAM and KMS.**
 To enforce S3 bucket, Glue job, and DynamoDB access policies, use AWS Identity and Access Management (IAM).
 Use the AWS Key Management Service (KMS) to encrypt data at rest.
@@ -566,6 +616,7 @@ Athena Queries for validating the cleaned data.
 Logs & Monitoring Set up CloudWatch and CloudTrail for security and performance monitoring.
 
 **Timeline:**
+
 **Total Duration : 7 Weeks**
 The data wrangling process includes six phases: 1) Data Ingestion, 2) Data Analysis, 3) Data Cleaning, 4) Data Profiling, 5) Data Security, 6) Data Consolidation, and 7) Monitoring. The first step is to upload the raw accident reporting dataset to Amazon S3, configure IAM roles and S3 bucket policies for data security, and enable S3 versioning for data version management. The second step comprises data analysis with AWS Glue Crawler and Amazon Athena to find errors such as missing information, duplication, and format inconsistencies. The third phase comprises data cleaning with AWS Glue DataBrew, which addresses missing values, removes duplicate entries, standardizes date formats, and cleans up 'Accident_Type' text fields. The fourth process comprises data profiling, which validates the cleaned data and ensures its correctness, consistency, and completeness.The fifth phase entails data security with AWS KMS and IAM rules for S3 and DynamoDB. The sixth process entails data consolidation, saving the cleansed data in Amazon DynamoDB for future analysis, and retaining unique IDs.
 
@@ -573,7 +624,7 @@ The goal of this data wrangling is to create a **high-quality, clean, and organi
 
 ![image](https://github.com/user-attachments/assets/d8b8b73e-ff0d-4cec-9994-a5f6308bcbe7)
 
-**Data Quality Control Measures:**
+**Data Quality Control Measures of Occupational Health and Safety Policy at UCW**
 
 **Project Description:** The major goal of this project is to provide a Data Quality Control (DQC) framework for the Accident Reporting Records dataset utilizing AWS services. This framework will guarantee that incident data is accurate, full, consistent, and reliable, allowing the business to discover safety gaps, comply with requirements, and make better workplace safety decisions. This project will use AWS resources such as S3, Glue, DataBrew, DynamoDB, Athena, CloudWatch, and IAM to create a strong process for profiling, cleaning, validating, and monitoring data quality.
 
