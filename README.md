@@ -1,3 +1,34 @@
+**Descriptive Analysis of City of Vancouver District Lots**
+Project Description	
+Project Title
+Objective
+Dataset	
+Methodology	
+Tools and Technologies	
+Deliverables
+
+**Data Wrangling for City of Vancouver District Lots**
+Project Description
+Project Title
+Objective
+Background
+Dataset
+Methodology 
+Tools and Technologies
+Deliverables
+Timeline
+
+**Data Quality Control of City of Vancouver districts lots**
+Project Description
+Project Title
+Objective
+Background
+Scope
+Methodology
+Deliverables
+Timeline
+
+
 **Descriptive Analysis of Occupational Health and Safety Policy at UCW**
 Project Description	
 Project Title
@@ -6,6 +37,29 @@ Dataset
 Methodology	
 Tools and Technologies	
 Deliverables
+
+**Data Wrangling for Occupational Health and Safety Policy at UCW**
+Project Description
+Project Title
+Objective
+Background
+Dataset
+Methodology 
+Tools and Technologies
+Deliverables
+Timeline
+
+**Data Quality Control of Occupational Health and Safety Policy at UCW**
+Project Description
+Project Title
+Objective
+Background
+Scope
+Methodology
+Deliverables
+Timeline
+
+
 
 **Descriptive Analysis**
 **Project description:**  
@@ -176,17 +230,172 @@ Standardize the land_use_label (e.g., residential, commercial, industrial).
 Correct discrepancies in Geo_Local_Area names (for example, "Downtown" vs. "downtown").
 Clean data should be stored in a transformation bucket (pad-dis-trf-swa) on Amazon S3 for further processing.
 
-**Data Transformation** Convert data types: Ensure that the analysis formats are acceptable (for example, numeric for District_Lot_Count and datetime for Timestamp).
-**Feature Engineering:**
-Derive new attributes:
-      Total_District_Lot_Count: Aggregate counts by geographic region.
-      Include summary flags: Determine which places have high or low lot densities.
-**Spatial Aggregation:** Combine geographic coordinates to find grouping tendencies in district lots.Perform grouping and aggregation.To generate summary, group the data by Geo_Local_Area and Land_Use_Label.
-Aggregate data into monthly or quarterly periods to get seasonal insights.
-Data Consolidation
-Merge cleaned and transformed datasets to create a uniform dataset:
-Combine geographic area data, district lot numbers, land use classifications, and spatial coordinates.
-Ensure that links are formed using unique identifiers (such as geographic area codes).
+**Data Transformation and Cleaning (AWS Glue DataBrew):** Transform and clean the district lot dataset using **AWS Glue DataBrew**.  
+
+- **Address Missing Values**: Impute or replace missing values in critical variables like **District_Lot_Count** (e.g., use median or average) and **Land_Use_Label** (replace with "Unknown").  
+- **delete Duplicates**: Identify and delete duplicate items based on **Geo_Local_Area** and **Coordinates** to maintain data integrity.  
+- **Format Correction**: - Convert **Timestamp** to proper 'datetime' format for precise temporal analysis.  
+   - To ensure consistency, capitalize each term in **Geo_Local_Area** and **Land_Use_Label**. For example, "downtown" → "Downtown"  
+- **Feature Engineering**: - Create new columns, such as **Lot Density** (calculated as District_Lot_Count per unit area if area size data is provided).  
+   
+This structured data transformation produces a clean, enhanced, and consistent dataset, allowing for reliable downstream analysis and reporting.  
+
+
+**Data Consolidation With Amazon Glue (Visual ETL) and DynamoDB:**  
+Import the cleaned and enhanced district lot dataset into a **Visual ETL pipeline** using **AWS Glue**. The schema has five key attributes: **Geo_Local_Area** (the primary key), **District_Lot_Count**, **Land_Use_Label**, **Coordinates**, and **Timestamp**.  
+The processed data is stored in **DynamoDB**, which allows for quick searching and retrieval for geographical analysis, land-use clustering, and future research.
+
+
+**Monitoring and Security:** **IAM and KMS:** - Enforce access policies for S3 buckets, Glue jobs, and DynamoDB tables using AWS Identity and Access Management (IAM).  
+- **AWS Key Management Service (KMS)** guarantees that all data at rest, including S3 and DynamoDB, is secured.
+
+**Cloud Watch**
+Configure Amazon CloudWatch to monitor Glue ETL job execution status, S3 bucket performance (including activity logs and storage utilization), and DynamoDB read/write capacity.  
+
+**CloudTrail:**
+Implement AWS CloudTrail to log all AWS API activities for auditing, change tracking, and security compliance across Glue, S3, and DynamoDB.
+This connection offers safe, efficient, and monitored data processing while ensuring compliance and allowing for scalability during analysis.
+
+
+
+**Tools and technologies.**
+
+**Amazon S3:** provides storage for both the raw and sanitized datasets.
+
+**AWS Glue:** Data catalog development and transformation tasks.
+
+**AWS Glue DataBrew:** AWS Glue DataBrew cleans and transforms data.
+
+**Athena:** Amazon Athena enables data querying and validation.
+
+**Amazon DynamoDB:** Amazon DynamoDB provides storage for accident records that have been cleansed and converted.
+
+**Cloud Watch** CloudWatch monitors Glue job activity and system performance.
+
+**Cloud Trail** CloudTrail logs AWS activity for security and auditing purposes.
+
+**IAM and KMS** IAM and KMS provide secure data access and encryption.
+
+
+**Data Quality Control**
+
+**Project Description:** This project aims to create a Data Quality Control (DQC) framework for the City of Vancouver District Lot Dataset utilizing AWS services. This program assures that the dataset is correct, comprehensive, consistent, and dependable for urban planning, zoning optimization, and infrastructure choices. This project uses AWS resources such as S3, Glue, DataBrew, Athena, DynamoDB, CloudWatch, and CloudTrail to execute rigorous data profiling, cleansing, validation, monitoring, and reporting procedures that ensure data integrity and allow informed decision-making.
+
+**Project Title:** Implementing Quality Control Measures for District Lot Data with AWS.
+
+**Background:** The City of Vancouver's district lot information is important for urban planning, however it has missing values, duplicate entries, and inconsistent formats, making it less usable. These difficulties can result in inaccurate zoning analysis, resource misallocation, and insufficient insights. To address these issues, this project provides a complete Data Quality Control framework that uses AWS capabilities to assure data quality, real-time integrity monitoring, and the creation of a long-term structure for data governance.
+
+**Scope:** The Data Quality Control Initiative addresses:
+
+**Data Profiling:** Data profiling is the process of determining whether or not data is comprehensive, correct, and consistent.
+
+**Data Cleaning:** Data cleansing include removing duplicates, rectifying mistakes, and standardizing formats.
+
+**Data Profiling:** Data validation is the process of putting standards in place to guarantee that data remains accurate over time.
+
+**Data Monitoring** Monitoring and reporting involve creating dashboards and alerts for real-time tracking
+
+**Data Protection:** Data Protection entails ensuring encryption and safe access to data resources.
+
+**Training:** Training involves educating stakeholders about data quality management and best practices.
+
+**Methodology**
+**Phase I: Data Ingestion and Storage (Week 1)**
+Upload the district lot dataset to Amazon S3 (district-lots-raw-swa) to ensure centralized storage.
+Configure IAM roles to ensure safe access to S3 buckets.
+Allow S3 versioning to save previous versions of the dataset for rollback and auditing.
+
+**Phase II: Data Profiling (Week 2)**
+Use AWS Glue Crawler to profile the dataset and catalog information in AWS Glue.
+Use AWS Glue DataBrew to evaluate data completeness, uniqueness, consistency, and correctness.
+Find missing values in District_Lot_Count and Land_Use_Label.
+Detect duplicate data using Geo_Local_Area and coordinates.
+
+**Phase Three: Data Cleaning (Week 3–4)**
+AWS Glue DataBrew will be utilized to clean and modify the dataset:Remove duplicate data based on Geo_Local_Area and coordinates,Imput missing values,Replace a missing Label with "Unknown." To fill in lacking District_Lot_Count, use the average/median value.
+Standardise and format:Convert the timestamp to the suitable datetime format.
+Normalize Label (e.g., capitalize values like "residential" to "residential").
+Finally ,Place the cleaned dataset in Amazon S3 (pad-dis-trf-swa).
+
+**Phase 4: Data Validation (Week 5)**
+Set up validation rules in AWS Glue to ensure:
+Geo_Local_Area entries have no duplicates.
+Consistency: District_Lot_Count has only correct numeric values.
+Categorical Compliance: Compare Land_Use_Label to an approved list (e.g., residential, commercial, industrial).
+Use Amazon Athena to query S3 buckets and ensure the clean dataset's integrity.
+
+**Phase Five: Data Enriching and Protection (Week 6).**
+
+**Data Enriching:**
+Import the cleaned and verified dataset into Amazon DynamoDB to perform organized and efficient queries.
+Schema includes:The primary key is Geo_Local_Area, and the attributes are District_Lot_Count, Land_Use_Label, Coordinates, Timestamp, and Validation Status.
+
+**Data Protection:** The **City of Vancouver's district lot dataset** is safe and compliant thanks to strong data security. Data integrity is protected through the use of **AWS KMS** encryption, **IAM** access control, and **S3 versioning** backups. **CloudTrail** and **CloudWatch** offer monitoring and logging capabilities, assuring confidentiality, security, and compliance with governance requirements.
+
+
+**Phase Six: Monitoring and Reporting (Week Seven)**
+Enable Amazon CloudWatch to monitor:Integrate job execution statuses with data transformation pipeline performance.
+Use AWS CloudTrail to record all API interactions for auditing and security purposes.
+Create real-time dashboards using CloudWatch or Athena queries to visualize:
+Duplicate records, missing values, and format compatibility.
+Data quality trends include critical parameters (such as error rates and completeness).
+
+**Phase Seven: Training and Awareness (Week Eight)**
+Create training materials and seminars for city planning and data teams to teach them about data quality concepts.
+Showcase AWS technologies for ensuring data integrity.
+Establish criteria for uniform data entry and quality management.
+Create a culture of accountability for continual data quality improvement.
+
+**Tools and Technologies:**
+
+**Amazon S3:** Amazon S3 provides secure storage for raw, converted, and verified datasets.
+
+**AWS Glue and Glue DataBrew:** AWS Glue and Glue DataBrew provide data profiling, cleansing, transformation, and validation.
+
+**Amazon Athena:** Amazon Athena supports SQL queries for integrity checks and analysis.
+
+**Amazon DynamoDB:** Amazon DynamoDB provides storage for condensed and organized datasets.
+
+**Amazon CloudWatch:** Amazon CloudWatch provides real-time monitoring of Glue tasks and S3 operations.
+
+**AWS CloudTrail**AWS CloudTrail audits all API operations for compliance.
+
+**IAM and KMS:** IAM and KMS provide secure access and data encryption 
+
+**Deliverables**
+
+**Cleaned Dataset:** Cleaned and validated The dataset is stored in Amazon S3 (CSV and Parquet) and DynamoDB for structured access.
+**Data Quality Metrics Report:** Detailed documentation for completeness, correctness, duplication, and mistakes.
+**Monitoring Dashboard:** Real-time display of data quality measures (for example, missing values and error patterns).
+**Process Documentation:** A detailed study on data quality methodologies, tools, and KPIs.
+**Training Materials and Workshops:** Resources for educating teams about data quality best practices and AWS technologies.
+
+
+**Timeline**
+**Week 1:** Data intake and storage configuration on Amazon S3.
+
+**Week 2:** Data profiling using AWS Glue Crawler and Glue DataBrew.
+
+**Weeks 3–4:** Data cleaning and transformation using Glue DataBrew.
+
+**Week 5:** Data validation and integrity checks using Glue and Athena.
+
+**Week 6:** Data enrichment and protection using DynamoDB for structured querying and IAM & KMS for data security.
+
+**Week 7:** Configuring CloudWatch and CloudTrail for monitoring and creating dashboards.
+
+**Week 8:** Workshops for stakeholders on data quality procedures.
+
+This Data Quality Control program for the City of Vancouver's district lot dataset guarantees that data used in urban planning and decision-making is clean, verified, and trustworthy. By utilizing AWS services for profiling, cleaning, monitoring, and training, the project improves data quality, simplifies compliance, and provides municipal planners with relevant information.
+
+
+![image](https://github.com/user-attachments/assets/f4299b57-e04d-4919-bbac-fe266e8b7c73)
+
+
+
+
+
+
 
 
 
@@ -273,6 +482,7 @@ Some of the accidents took place in January, March and May although due to small
       This descriptive analysis leverages AWS services to efficiently analyze the occupational health and safety data, providing valuable insights to improve workplace safety at UCW.
 
 **Data Wrangling**
+
 **Project Description:** Data Wrangling for Accident Reporting Records at University Canada  West .This project seeks to convert the raw dataset into a clean, consolidated format that will allow for speedy retrieval, accurate analysis, and compliance reporting by organizational stakeholders. The data wrangling process will be automated and monitored using AWS services such as S3, Glue, DataBrew, DynamoDB, Athena, CloudWatch, and CloudTrail, all while ensuring data security and control.
 
 **Project Title:** Data Wrangling for Accident Reporting Records Using AWS Services
