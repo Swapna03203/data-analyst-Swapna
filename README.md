@@ -226,7 +226,7 @@ To gain deeper insights, integrate other data such as population density or deve
 
 - Data documentation describing the sources, cleaning stages, and transformation processes.
 
-![image](https://github.com/user-attachments/assets/fe3900e7-4f1b-4ef6-8358-ebf9927fee76)
+![image](https://github.com/user-attachments/assets/b9914f34-4378-4d97-86b7-3035b2a19882)
 
 
 **Data Wrangling for City of Vancouver District Lots**
