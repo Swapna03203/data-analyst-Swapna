@@ -1,0 +1,67 @@
+Project Description
+This project focuses on exploratory data analysis (EDA) of the City of Vancouver’s district lot distribution to uncover trends, spatial patterns, and zoning insights. The study aims to assist in urban planning, zoning regulations, and infrastructure development by leveraging AWS cloud services for data storage, transformation, and analysis.
+
+Project Title
+Exploring Vancouver’s District Lot Distribution and Zoning Trends
+
+Objective
+The objective of this project is to conduct an exploratory analysis of Vancouver’s district lots to:
+
+Identify geographic distribution trends of district lots across neighborhoods.
+Analyze land use classifications (residential, commercial, industrial) and their spatial patterns.
+Examine clustering patterns to highlight high-density and low-density regions.
+Provide insights for city planning, zoning, and resource allocation.
+Dataset
+The dataset was sourced from the City of Vancouver Open Data Portal and includes:
+
+Geo_Local_Area – Names of different geographic regions (e.g., Downtown, Kitsilano, West End).
+District_Lot_Count – Total number of district lots per region.
+Land_Use_Label – Classification of land use (residential, commercial, industrial).
+Geoms – Geographic coordinates representing district lot locations.
+Methodology
+1. Data Ingestion
+Raw data was stored in AWS S3 under the bucket (district-lots-raw-swa).
+Structured processing setup in a separate S3 bucket (district-lots-trf-swa), with organized folders for raw, cleaned, and transformed data.
+2. Data Profiling and Cleaning
+Connected dataset to AWS Glue DataBrew for profiling.
+Identified data quality issues:
+Missing values in district lot counts and land use labels.
+Inconsistent formats (e.g., incorrect geographical names).
+Duplicate records in district lot entries.
+Data cleaning steps:
+Imputed missing values using statistical techniques.
+Removed duplicates to ensure data integrity.
+Standardized land use labels for consistency.
+Created a reusable recipe in DataBrew to automate the cleaning process for future updates.
+3. ETL Pipeline Design
+AWS Glue Visual ETL pipeline was designed and executed:
+Dropped irrelevant columns.
+Aggregated data by Geo_Local_Area to analyze trends.
+Standardized schema for district lot records across different data sources.
+Merged datasets to compare historical district lot distributions with the latest available data.
+4. Data Exploration and Analysis
+Amazon Athena was used to query and analyze:
+Total district lots per region to highlight high-density zones.
+Distribution of land use classifications (residential vs. commercial vs. industrial).
+Clustering patterns to detect high-development areas.
+Seasonal trends to assess potential construction activity impacts.
+Visualizations (heatmaps, bar charts, density plots) were created for better insights.
+Tools and Technologies
+AWS Services: S3, Glue DataBrew, Glue ETL, Athena
+Data Storage: AWS S3 with structured raw and transformed datasets
+Profiling & Cleaning: AWS Glue DataBrew for automation and validation
+ETL Automation: AWS Glue Visual ETL for data transformation and aggregation
+Querying & Analysis: Amazon Athena (SQL-based data retrieval and insights)
+Deliverables
+Cleaned and transformed dataset stored in AWS S3 for further analysis.
+Key insights from exploratory analysis, including:
+Total district lot distributions across neighborhoods.
+Clustering of high-density lots for zoning recommendations.
+Land use proportions for better infrastructure planning.
+Comparative insights with historical lot data to track urban development.
+Organized data outputs for system and user reporting:
+Internal (integration with GIS systems for planning)
+External (data dashboards and reports for stakeholders)
+Conclusion
+This exploratory analysis of Vancouver’s district lot data provided structured insights into geographic and zoning patterns, helping city planners and policymakers make informed decisions. By leveraging AWS services for data profiling, cleaning, and transformation, the analysis highlighted high-density land zones, residential vs. commercial lot distributions, and infrastructure trends. The automated ETL pipelines and cleaning recipes ensure scalability for future district lot evaluations, enhancing urban planning efficiency and resource allocation.
+
